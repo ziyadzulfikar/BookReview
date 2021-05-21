@@ -1,73 +1,19 @@
 <section class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                    class="card-img-top"
-                    alt="..."
-                />
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">{{title}}</a>
+        {{#each books}}
+            <div class="col-md-3">
+                <div class="card">
+                    <img style="height: 27vh; width: 100%; border-radius: 30px;" src="/book-images/{{this._id}}.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.Name}}</h5>
+                        <p class="card-text">
+                        {{this.Description}}
+                        </p>
+                        <a href="/review" class="btn btn-primary">Review</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                    class="card-img-top"
-                    alt="..."
-                />
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">{{title}}</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                    class="card-img-top"
-                    alt="..."
-                />
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">{{title}}</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                    class="card-img-top"
-                    alt="..."
-                />
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">{{title}}</a>
-                </div>
-            </div>
-        </div>
+        {{/each}}
     </div>
     
 </section>

@@ -54,7 +54,7 @@
         aria-expanded="false"
       >
         <i class="fas fa-bell"></i>
-        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        <span class="badge rounded-pill badge-notification bg-danger">3</span>
       </a>
       <ul
         class="dropdown-menu dropdown-menu-end"
@@ -99,7 +99,11 @@
           <a class="dropdown-item" href="#">Settings</a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">Logout</a>
+          {{#if user}}
+            <a class="dropdown-item" href="/logout">Logout</a>
+          {{else}}
+            <a class="dropdown-item" href="/login">login</a>
+          {{/if}}
         </li>
       </ul>
     </div>

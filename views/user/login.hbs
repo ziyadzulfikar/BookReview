@@ -1,0 +1,77 @@
+{{!-- <form action="/login" method="POST">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  {{#if loginErr}}
+    <p class="error" style="text-align: center;">{{loginErr}}</p>
+  {{/if}}
+
+  <div class="container">
+    <label for="uname"><b>Email address</b></label>
+    <input type="email" placeholder="Enter Email" name="Email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Password" name="Password" required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn"><a href="/" style="text-decoration: none; color: #f1f1f1;">Cancel</a></button>
+    <span class="psw"><a href="/signup">Create new Account?</a></span>
+  </div>
+</form> --}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-5">
+      <form action="/login" method="POST">
+        {{#if loginErr}}
+          <p class="error" style="text-align: center;">{{loginErr}}</p>
+        {{/if}}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="form1Example1" class="form-control" name="Email" required/>
+          <label class="form-label" for="form1Example1">Email address</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="form1Example2" class="form-control" name="Password" required/>
+          <label class="form-label" for="form1Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="form1Example3"
+                checked
+              />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Simple link -->
+            <a href="/signup">Create new Account?</a>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
