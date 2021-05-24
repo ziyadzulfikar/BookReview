@@ -16,5 +16,44 @@ module.exports = {
             let books = await db.get().collection(collection.BOOK_COLLECTION).find().toArray()
             resolve(books)
         })
+    },
+    getAllComments:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let comments = await db.get().collection(collection.COMMENT_COLLECTION).find().toArray()
+            resolve(comments)
+        })
+    },
+    getEachBook:(bId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let eachBookId = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
+                {
+                    $match:{
+                        _id : ObjectId(bId)
+                    }
+                }
+            ]).toArray()
+            resolve(eachBookId)
+        })
+    },
+    getEachBookComments:(bId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let comments = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
+                {
+                    $match:{
+                        bookId : bId
+                    }
+                }
+            ]).toArray()
+            console.log(comments);
+            resolve(comments)
+        })
     }
+
+    
+
+    // commentBooks:()=>{
+    //     return new Promise(async(resolve,reject)=>{
+
+    //     })
+    // }
 }

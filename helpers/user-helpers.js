@@ -38,5 +38,12 @@ var objectId = require('mongodb').ObjectID
             }
             
         })
+    },
+    doComment:(userCommentObj)=>{
+        return new Promise(async(resolve,reject)=>{
+            db.get().collection(collection.COMMENT_COLLECTION).insertOne(userCommentObj).then((data)=>{
+                resolve(data.ops[0]);
+            })
+        })
     }
- }
+}

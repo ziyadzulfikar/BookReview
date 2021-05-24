@@ -1,0 +1,73 @@
+
+<div class="container-fluid h-100">
+    <div class="row mt-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            {{#each bookComment}}
+                <div class="card mt-4">
+                    <div class="card-header">{{this.username}}</div>
+                    <div class="card-body">
+                        <div>
+                            {{!-- id="rating-input" --}}
+                            <input id="rating-input" value="{{this.rating}}" type="text" title="" data-size="xs" disabled/>
+                        </div>
+                        <blockquote class="blockquote mb-0">
+                        <p>
+                            {{this.Comments}}
+                        </p>
+                        <footer class="blockquote-footer">
+                            Book Name <cite title="Source Title">{{this.bookname}}</cite>
+                        </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3">
+
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Comment</h5>
+                    <p class="card-text">
+                        <form action="/comments" method="POST">
+                            <!-- Message input -->
+                            <div class="form-outline mb-4">
+                                <textarea class="form-control" id="form4Example3" rows="4" name="Comments"></textarea>
+                                <label class="form-label" for="form4Example3">Message</label>
+                            </div>
+                            {{#each eachBookId}}
+                                <input type="text" name="bookname" value="{{this.Name}}" hidden>
+                                <input type="text" name="bookId" value="{{this._id}}" hidden>
+                            {{/each}}
+
+                            {{!-- Star input --}}
+                            <div class="form-outline mb-4">
+                                <p>Please rate this Book</p>
+                                <fieldset class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                              
+                                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                              
+                                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                              
+                                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                              
+                                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                              
+                                </fieldset>
+                            </div>
+
+                    </p>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                        </form>
+                </div>
+            </div>
+              
+        </div>
+    </div>
+</div>
+

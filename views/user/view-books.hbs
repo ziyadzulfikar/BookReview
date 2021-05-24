@@ -1,19 +1,356 @@
-<section class="container">
-    <div class="row">
+{{#if user}}
+  <div class="page-section bg-dark fg-white">
+    <div class="container">
+      <h1 class="text-center">Best Collections</h1>
+      <div class="row justify-content-center mt-5">
         {{#each books}}
-            <div class="col-md-3">
-                <div class="card">
-                    <img style="height: 27vh; width: 100%; border-radius: 30px;" src="/book-images/{{this._id}}.jpg" class="card-img-top" alt="...">
+            <div class="col-md-6 col-lg-3 py-3">
+                <div class="card border-0 bg-transparent  wow zoomIn text-center" data-wow-delay="200ms">
+                    <img style="height: 40vh; width: 100%;" src="/book-images/{{this._id}}.jpg" class="card-img-top img-thumbnail" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{this.Name}}</h5>
-                        <p class="card-text">
-                        {{this.Description}}
-                        </p>
-                        <a href="/review" class="btn btn-primary">Review</a>
+                        <p style="font-size: x-small;">{{this.Category}}</p>
+                        <hr>
+                          <a
+                            {{!-- href="/book-reviews/{{this._id}}" --}}
+                            
+                            type="button"
+                            class="btn btn-light text-dark btn-sm mr-1 mb-2"
+                            data-mdb-toggle="modal"
+                            data-mdb-target="#id{{this._id}}"
+                          ><i class="fas fa-info-circle pr-2"></i>
+                            Details
+                          </a>
+                          <a href="{{this.Link}}" type="button" class="btn btn-success btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip"
+                  data-placement="top" title="Add to wishlist"><i class="fas fa-shopping-cart pr-2"></i></a>
+
+                          <!-- Modal -->
+                          <div
+                            class="modal fade"
+                            id="id{{this._id}}"
+                            tabindex="-1"
+                            aria-labelledby="id{{this._id}}Label"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog modal-xl">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title text-dark" id="id{{this._id}}Label">{{this.Name}}</h5>
+                                  
+                                  <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-mdb-dismiss="modal"
+                                    aria-label="Close"
+                                  ></button>
+                                </div>
+                                  <div class="modal-body text-dark">
+                                    <div class="d-flex justify-content-evenly">
+                                      {{!-- <img style="height: 40vh;" src="/book-images/{{this._id}}.jpg" class="card-img-top img-thumbnail w-25" alt="..."> --}}
+                                      <div class="float-right"> 
+                                        <div class="card mb-3" style="max-width: 100%;">
+                                          <div class="row g-0">
+                                            <div class="col-md-3">
+                                              <img
+                                                src="/book-images/{{this._id}}.jpg"
+                                                alt="..."
+                                                class="img-fluid card-img-top img-thumbnail"
+                                                style="height: 40vh;"
+                                              />
+                                            </div>
+                                            <div class="col-md-9">
+                                              <div class="card-body">
+                                                <h5 class="card-title">{{this.Name}}</h5>
+                                                <small class="text-muted">{{this.Category}}</small>
+                                                <hr>
+                                                <p class="card-text">
+                                                  {{this.Description}}
+                                                </p>
+                                                <p class="card-text">
+                                                  
+                                                </p>
+                                                <footer>
+                                                  <a type="button" class="btn btn-light text-dark btn-sm mr-1 mb-2" href="/book-reviews/{{this._id}}">Rate Our Book</a>
+                                                  <a href="{{this.Link}}" type="button" class="btn btn-success btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip"
+                                                          data-placement="top" title="Add to wishlist"><i class="fas fa-shopping-cart pr-2"></i>Buy</a>
+                                                </footer>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                      Close
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
                     </div>
                 </div>
             </div>
         {{/each}}
+      </div>
     </div>
-    
-</section>
+  </div>
+{{else}}
+  <div class="page-hero-section bg-image hero-home-1" style="background-image: url(/assets/img/bg_hero_1.svg);">
+    <div class="hero-caption pt-5">
+      <div class="container h-100">
+        <div class="row align-items-center h-100">
+          <div class="col-lg-6 wow fadeInUp">
+            <div class=" mb-4  "><span class="icon mr-1"><span class="mai-globe"></span></span>GoodReads Choice Award 2020</div>
+            <h2 class="mb-4">Deciding what to read next?</h2>
+            <p class="mb-4">You’re in the right place. Tell us what titles or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
+            <a  class="btn btn-primary rounded-pill" data-mdb-toggle="modal" data-mdb-target="#signup">Sign up</a>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block wow zoomIn">
+            <div>
+              <img  class="img-fluid floating-animate" src="/assets/img/7151.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-section bg-dark fg-white">
+    <div class="container">
+      <h1 class="text-center">Best Collections</h1>
+
+      <div class="row justify-content-center mt-5">
+        {{#each books}}
+          <div class="col-md-6 col-lg-3 py-3">
+                <div class="card border-0 bg-transparent  wow zoomIn text-center" data-wow-delay="200ms">
+                    <img style="height: 40vh; width: 100%;" src="/book-images/{{this._id}}.jpg" class="card-img-top img-thumbnail" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.Name}}</h5>
+                        <p style="font-size: x-small;">{{this.Category}}</p>
+                          <hr>
+                            <a
+                              href="/login"                          
+                              type="button"
+                              class="btn btn-light text-dark btn-sm mr-1 mb-2"
+                            ><i class="fas fa-info-circle pr-2"></i>
+                              Details
+                            </a>
+                            <a href="{{this.Link}}" type="button" class="btn btn-success btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip"
+                              data-placement="top" title="Add to wishlist"><i class="fas fa-shopping-cart pr-2"></i></a>
+                        </p>
+                    </div>
+                </div>
+          </div>        
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="position-realive bg-image" style="background-image: url(/assets/img/pattern_1.svg);">
+
+
+  <div class="page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-1 py-3 mt-lg-5 wow fadeInUp">
+          <h1 class="mb-4">Are you an author or a publisher?</h1>
+          <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, molestiae, perspiciatis laboriosam quia placeat recusandae repudiandae corrupti similique delectus, aliquam commodi possimus eveniet optio magnam quis vel. Reiciendis, fuga excepturi.</p>
+          <a href="#" class="btn btn-outline-primary rounded-pill">Advertise</a>
+        </div>
+        <div class="col-lg-5 py-3">
+          <div >
+            <img class="img-fluid floating-animate" src="/assets/img/app_preview_3.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 py-3">
+          <div>
+            <img class="img-place mobile-preview shadow floating-animate" src="/assets/img/app_preview_1.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 py-3 mt-lg-5">
+          <div class="iconic-list">
+            <div class="iconic-item wow fadeInUp">
+              <div class="iconic-md iconic-text bg-warning fg-white rounded-circle">
+                <span class="mai-cube"></span>
+              </div>
+              <div class="iconic-content">
+                <h5>More collection of books</h5>
+                <p class="fs-small">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore</p>
+              </div>
+            </div>
+            <div class="iconic-item wow fadeInUp">
+              <div class="iconic-md iconic-text bg-info fg-white rounded-circle">
+                <span class="mai-shield"></span>
+              </div>
+              <div class="iconic-content">
+                <h5>Easy Access</h5>
+                <p class="fs-small">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore</p>
+              </div>
+            </div>
+            <div class="iconic-item wow fadeInUp">
+              <div class="iconic-md iconic-text bg-indigo fg-white rounded-circle">
+                <span class="mai-desktop-outline"></span>
+              </div>
+              <div class="iconic-content">
+                <h5>Support Any Device</h5>
+                <p class="fs-small">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- whats new -->
+  <div class="page-section bg-image" style="background-image: url(/assets/img/pattern_2.svg);" id="whats_new">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0 wow fadeInUp">
+          <h1 class="mb-4">What's New</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores inventore maxime ipsa eligendi quibusdam velit maiores adipisci odit, exercitationem cumque iusto at debitis reiciendis a, ipsum aliquam reprehenderit. Sed, delectus.</p>
+          <a href="#" class="btn btn-gradient btn-split-icon rounded-pill">
+            <span class="mai-chevron-forward"></span> Find More
+          </a>
+        </div>
+        <div class="col-lg-7">
+          <div class="pricing-table">
+            <div class="pricing-item active wow zoomIn">
+              <div class="pricing-header">
+                <h5 class="fw-normal">The Kite Runner</h5>
+              </div>
+              <div class="mb-3">
+                <img class="img-thumbnail" src="/assets/books/11.jpg" alt="">
+              </div>
+              <button class="btn btn-dark">Read Book</button>
+            </div>
+            <div class="pricing-item wow zoomIn" data-wow-delay="200ms">
+              <div class="pricing-header">
+                <h5 class="fw-normal">The Kite Runner</h5>
+              </div>
+              <div class="mb-3">
+                <img class="img-thumbnail" src="/assets/books/12.jpg" alt="">
+              </div>
+              <button class="btn btn-dark">Read Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer review-->
+  <div class="page-section bg-image bg-image-overlay-dark" style="background-image: url(/assets/img/bg_books.jpg);">
+    <div class="container fg-white">
+      <div class="row">
+        <div class="col-md-8 col-lg-6 offset-lg-1 wow fadeInUp">
+          <h2 class="mb-5 fg-white fw-normal">Customer Reviws</h2>
+          <p class="fs-large font-italic">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia voluptates facere explicabo! Rerum necessitatibus cum qui veritatis reprehenderit, neque sapiente consequatur atque eaque molestias, est, quod totam quo laudantium ratione.</p>
+          <p class="fs-large fg-grey fw-medium mb-5">John Doe, Novalist</p>
+
+          <a href="#" class="btn btn-outline-light rounded-pill">More Reviews <span class="mai-chevron-forward"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="page-section" id="about">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card-page mt-5">
+            <h3 class="fg-primary">Meet Our Teams</h3>
+            <hr>
+
+            <div class="row justify-content-center">
+              <div class="col-lg-5 py-3">
+                <div class="team-item">
+                  <div class="team-avatar">
+                    <img src="/assets/img/person/p1.png" alt="">
+                  </div>
+                  <h5 class="team-name">Ziyad Bin Sulfi</h5>
+                  <span class="fg-gray fs-small">Creative Director</span>
+                </div>
+              </div>
+              <div class="col-lg-5 py-3">
+                <div class="team-item">
+                  <div class="team-avatar">
+                    <img src="/assets/img/person/p3.png" alt="">
+                  </div>
+                  <h5 class="team-name">Thabsheer Mohammed</h5>
+                  <span class="fg-gray fs-small"> Designer</span>
+                </div>
+              </div>
+              <div class="col-lg-5 py-3">
+                <div class="team-item">
+                  <div class="team-avatar">
+                    <img src="/assets/img/person/p2.png" alt="">
+                  </div>
+                  <h5 class="team-name">Muhammed Nabeel</h5>
+                  <span class="fg-gray fs-small">Product Manager</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="page-section" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 my-3 wow fadeInUp">
+          <div class="card-page">
+            <div class="row row-beam-md">
+              <div class="col-md-4 text-center py-3 py-md-2">
+                <i class="mai-location-outline h3"></i>
+                <p class="fg-primary fw-medium fs-vlarge">Location</p>
+                <p class="mb-0">MES College of Engineering ,TinkerHub community</p>
+              </div>
+              <div class="col-md-4 text-center py-3 py-md-2">
+                <i class="mai-call-outline h3"></i>
+                <p class="fg-primary fw-medium fs-vlarge">Contact</p>
+                <p class="mb-1">+000 000 00000</p>
+                <p class="mb-0">+000 000 00000</p>
+              </div>
+              <div class="col-md-4 text-center py-3 py-md-2">
+                <i class="mai-mail-open-outline h3"></i>
+                <p class="fg-primary fw-medium fs-vlarge">Email</p>
+                <p class="mb-1">support@goodread.com</p>
+                <p class="mb-0">support@asmodeuz.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{/if}}
+  
+
+
+
+
+
+{{!-- src="/book-images/{{this._id}}.jpg --}}
+
+{{!-- /assets/books/2.jpg --}}
