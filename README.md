@@ -28,24 +28,30 @@ Online book store website developed by HTML, Javascript, CSS ,mongodb and nodejs
 3. Muhammed nabeel [https://github.com/zero52100]
 
 ## Team Id
+
  BFH/recM3Uc7UG5vjnPRp/2021
+ 
 ## Link to product walkthrough
-[link to video]
-## How it Works ?
-1. Step 1
-2. Step 2
+
+https://www.loom.com/share/6db60372dacc45fca79d00e96ec38dbf
+
 ## Libraries used
-Library Name - Version
+
+Express Library
+
+
 ## How to configure
+
 Instructions for setting up project
+1.  Install Nodejs ,if not already installed.Can be downloaded from https://nodejs.org/en/download/
+2.  Install Mongodb ,if not already installed. Can be downloaded from https://www.mongodb.com/try/download/community
 
 ## How to Run
- 1.  Install Nodejs ,if not already installed.Can be downloaded from https://nodejs.org/en/download/
- 2.  Install Mongodb ,if not already installed. Can be downloaded from https://www.mongodb.com/try/download/community
- 3.  Open the code folder in visual studio code(or anyother enivrnoment editor)
- 4.  Open the terminal in vscode
- 5.  command npm start - this command is used to start nodejs
- 6.  open any browser, enter "localhost:3000"  
+ 
+ 1.  Open the code folder in visual studio code(or anyother enivrnoment editor)
+ 2.  Open the terminal in vscode
+ 3.  command npm start - this command is used to start nodejs
+ 4.  open any browser, enter "localhost:3000"  
  
  
  ## Screenshots
@@ -97,4 +103,4 @@ Instructions for setting up project
 
 ## BFH TINKERHUB PROJECT USING NODEJS 
   
-  
+  ASMODEUZ
