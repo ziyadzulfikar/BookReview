@@ -81,7 +81,7 @@ module.exports = {
             resolve(eachUsersComment)
         })
     },
-    deleteEachUserBooks:(cId)=>{
+    deleteEachUserComments:(cId)=>{
         return new Promise((resolve,reject)=>{
             db.get().collection(collection.COMMENT_COLLECTION).removeOne({_id:objectId(cId)}).then((response)=>{
                 resolve(response)

@@ -164,7 +164,7 @@ router.get('/myComments', verifyLogin, (req, res, next) => {
 
 router.get('/deleteUserComments/:id', verifyLogin, (req, res, next) =>{
   console.log(req.params.id);
-  bookHelpers.deleteEachUserBooks(req.params.id).then(()=>{
+  bookHelpers.deleteEachUserComments(req.params.id).then(()=>{
     res.redirect('/myComments')
   })
 })
