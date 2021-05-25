@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
       console.log(books);
       bookHelpers.getAllComments().then((comments)=>{
         console.log(comments);
-        res.render('user/view-books', {title:'User', books, user, comments, home:false, signin:true});
+        res.render('user/view-books', {title:'User', books, user, comments, home:false, signin:true, admin:false});
       })
     })  
 });

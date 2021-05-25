@@ -1,0 +1,20 @@
+<div class="container h-100">
+    <div class="row h-75 mt-4" style="overflow: auto;">
+    {{#each comments}}
+        <div class="col-md-4 mt-3">
+            <div class="card">
+                <div class="card-header">{{this.bookname}}</div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-light"><i class="fas fa-star"></i><span class="badge bg-success ms-2">{{this.rating}}</span>
+                                <span class="visually-hidden">unread messages</span>
+                            </button>
+                    <p class="card-text">
+                        {{this.Comments}}
+                    </p>
+                    <a href="/admin/deleteComments/{{this._id}}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>
