@@ -63,9 +63,16 @@
                                                 <h5 class="card-title">{{this.Name}}</h5>
                                                 <small class="text-muted">{{this.Category}}</small>
                                                 <hr>
-                                                <p class="card-text">
-                                                  {{this.Description}}
-                                                </p>
+                                                <div class="text-left">
+                                                  <p class="card-text">
+                                                    {{this.Description}}
+                                                    <p><strong>Genre :</strong> {{Category}}</p>
+                                                    <p><strong>Language :</strong> {{Language}}</p>
+                                                    <p><strong>Author :</strong> {{Author}}</p>
+                                                    <p><strong>ISBN :</strong> {{ISBN}}</p>
+                                                    <p><strong>Year of Publication :</strong> {{Publication}}</p>
+                                                  </p>
+                                                </div>
                                                 <p class="card-text">
                                                   
                                                 </p>
@@ -107,10 +114,10 @@
       <div class="container h-100">
         <div class="row align-items-center h-100">
           <div class="col-lg-6 wow fadeInUp">
-            <div class=" mb-4  "><span class="icon mr-1"><span class="mai-globe"></span></span>GoodReads Choice Award 2020</div>
+            
             <h2 class="mb-4">Deciding what to read next?</h2>
             <p class="mb-4">You’re in the right place. Tell us what titles or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
-            <a href="/signup" class="btn btn-primary text-light rounded-pill">Sign up</a>
+            <a href="/signup" class="btn btn-primary text-light rounded-pill">Add Books</a>
           </div>
           <div class="col-lg-6 d-none d-lg-block wow zoomIn">
             <div>

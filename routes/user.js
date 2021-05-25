@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
       console.log(books);
       bookHelpers.getAllComments().then((comments)=>{
         console.log(comments);
-        res.render('user/view-books', {title:'User', admin:false, books, user, comments, home:false});
+        res.render('user/view-books', {title:'User', admin:false, books, user, comments, home:false, signin:true});
       })
     })  
 });
@@ -51,7 +51,7 @@ router.get('/login',(req,res)=>{
   if(req.session.user){
     res.redirect('/')
   }else{
-    res.render('user/login', { "loginErr":req.session.userLoginErr , title: 'Company', admin: false, home:true})
+    res.render('user/login', { "loginErr":req.session.userLoginErr , title: 'Company', admin: false, home:true, signin:false})
     req.session.userLoginErr = false
   }
 })
