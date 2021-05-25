@@ -58,11 +58,13 @@
     <div class="container">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="/">
+        <strong>
         {{#if user}}
           {{user.Name}}
         {{else}}
           Asmodeuz
         {{/if}}
+        </strong>
       </a>
   
       <!-- Toggle button -->
@@ -83,7 +85,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="#"></a>
           </li>
         </ul>
         <!-- Left links -->
@@ -91,28 +93,24 @@
         <div class="d-flex align-items-center">
 
             {{#if home}}
-                <a href="/" type="button" class="btn btn-info btn-sm mr-1 mb-2">Home</a>
+                <a href="/" type="button" class="btn btn-info me-3">Home</a>
             {{/if}}
             
             {{#if user}}
-                <a href="/add-book" type="button" class="btn btn-primary btn-sm mr-1 mb-2">Add</a>
-                <a href="/myBooks" type="button" class="btn btn-warning btn-sm mr-1 mb-2">MyBooks</a>
-                <a href="/myComments" type="button" class="btn btn-light btn-sm mr-1 mb-2">MyComments</a>
-                <a href="/logout" type="button" class="btn btn-danger btn-sm mr-1 mb-2">Logout</a>
+                <a href="/add-book" type="button" class="btn btn-primary me-3">Add</a>
+                <a href="/myBooks" type="button" class="btn btn-warning me-3">MyBooks</a>
+                <a href="/myComments" type="button" class="btn btn-light me-3">MyComments</a>
+                <a href="/logout" type="button" class="btn btn-danger me-3">Logout</a>
             {{else}}
                 {{#if signin}}
-                    <a href="/login" type="button" class="btn btn-link px-3 me-2">Signin</a>
-                {{else}}
-                    <a href="/signup" type="button" class="btn btn-primary me-3">
-                        Sign up
-                    </a>
+                    <a href="/login" type="button" class="btn btn-primary px-3 me-2">Login</a>
                 {{/if}}
             {{/if}}
 
 
           <a
             class="btn btn-dark px-3"
-            href="https://github.com/mdbootstrap/mdb-ui-kit"
+            href="https://github.com/ziyadzulfikar/BookReview.git"
             role="button"
             ><i class="fab fa-github"></i
           ></a>
