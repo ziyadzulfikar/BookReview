@@ -21,14 +21,14 @@ router.get('/', function(req, res, next) {
       console.log(books);
       bookHelpers.getAllComments().then((comments)=>{
         console.log(comments);
-        res.render('user/view-books', {title:'User', admin:false, books, user, comments, home:false, signin:true});
+        res.render('user/view-books', {title:'User', books, user, comments, home:false, signin:true});
       })
     })  
 });
 
 router.get('/add-book', verifyLogin, (req, res, next) => {
   let userId = user._id;
-  res.render('user/add-book', {title:'User',admin:false, user, userId, home:true});
+  res.render('user/add-book', {title:'User', user, userId, home:true});
 })
 
 router.post('/user/add-book', verifyLogin, (req, res, next) => {
@@ -51,7 +51,7 @@ router.get('/login',(req,res)=>{
   if(req.session.user){
     res.redirect('/')
   }else{
-    res.render('user/login', { "loginErr":req.session.userLoginErr , title: 'Company', admin: false, home:true, signin:false})
+    res.render('user/login', { "loginErr":req.session.userLoginErr , title: 'Company', home:true, signin:false})
     req.session.userLoginErr = false
   }
 })
@@ -59,7 +59,7 @@ router.get('/signup',(req,res)=>{
   if(req.session.userLoggedIn){
     res.redirect('/')
   }else{
-    res.render('user/signup', { title: 'Company', admin: false, home:true})
+    res.render('user/signup', { title: 'Company', home:true})
   }
 })
 router.post('/signup',(req,res)=>{
