@@ -24,14 +24,14 @@ router.get('/all-comments', (req, res, next) => {
   router.get('/deleteBooks/:id', (req, res, next) =>{
     console.log(req.params.id);
     bookHelpers.deleteEachUserBooks(req.params.id).then(()=>{
-      res.redirect('/admin')
+      res.redirect('/all-books')
     })
   })
 
   router.get('/deleteComments/:id', (req, res, next) =>{
     console.log(req.params.id);
     bookHelpers.deleteEachUserComments(req.params.id).then(()=>{
-      res.redirect('/admin')
+      res.redirect('/all-comments')
     })
   })
 
