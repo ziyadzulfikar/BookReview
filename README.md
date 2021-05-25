@@ -23,9 +23,10 @@ Online book store website developed by HTML, Javascript, CSS ,mongodb and nodejs
   - suggest best online store and price of the book 
   
 ## Team members
-1. Ziyad bin sulfi [https://github.com/ziyadzulfikar]
-2. Thabsheer mohammed [https://github.com/thabumon]
-3. Muhammed nabeel [https://github.com/zero52100]
+
+1. Ziyad Bin Sulfi    [https://github.com/ziyadzulfikar]
+2. Thabsheer Mohammed [https://github.com/thabumon]
+3. Muhammed Nabeel    [https://github.com/zero52100]
 
 ## Team Id
 
