@@ -1,6 +1,8 @@
+![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
+# Book Review using Nodejs
 Online book store website developed by HTML, Javascript, CSS ,mongodb and nodejs.
 
-## Features
+ Features
 - Homepage
   - Recent books
   - Show books by category
@@ -19,9 +21,25 @@ Online book store website developed by HTML, Javascript, CSS ,mongodb and nodejs
   - Add or remove books 
   - review the book
   - suggest best online store and price of the book 
-
   
-## Getting started
+## Team members
+1. Ziyad bin sulfi [https://github.com/ziyadzulfikar]
+2. Thabsheer mohammed [https://github.com/thabumon]
+3. Muhammed nabeel [https://github.com/zero52100]
+
+## Team Id
+ BFH/recM3Uc7UG5vjnPRp/2021
+## Link to product walkthrough
+[link to video]
+## How it Works ?
+1. Step 1
+2. Step 2
+## Libraries used
+Library Name - Version
+## How to configure
+Instructions for setting up project
+
+## How to Run
  1.  Install Nodejs ,if not already installed.Can be downloaded from https://nodejs.org/en/download/
  2.  Install Mongodb ,if not already installed. Can be downloaded from https://www.mongodb.com/try/download/community
  3.  Open the code folder in visual studio code(or anyother enivrnoment editor)
