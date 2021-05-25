@@ -1,0 +1,28 @@
+
+    <div class="container h-100">
+        <div class="row">
+            {{#each UserBooks}}
+            <div class="col-md-3 mt-3">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img
+                        style="height: 40vh; width: 100%;"
+                        src="/book-images/{{this._id}}.jpg"
+                        class="card-img-top img-thumbnail"
+                        />
+                        <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.Name}}</h5>
+                        <p class="card-text">
+                        {{this.Category}}
+                        </p>
+                        <a href="/deleteUserBooks/{{this._id}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>

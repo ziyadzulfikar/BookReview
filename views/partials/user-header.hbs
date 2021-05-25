@@ -18,36 +18,26 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <a class="navbar-brand mt-2 mt-lg-0" href="/">
         {{#if user}}
           {{user.Name}}
         {{else}}
-          Book-Reads
+          Asmodeuz
         {{/if}}
       </a>
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li>
-      </ul>
-      <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
     <div class="d-flex align-items-center">
-      {{#if addBooks}}
-        <a href="/add-book" type="button" class="btn btn-primary btn-sm mr-1 mb-2">Add</a>
+      {{#if home}}
+        <a href="/" type="button" class="btn btn-info btn-sm mr-1 mb-2">Home</a>
       {{/if}}
       
       {{#if user}}
+        <a href="/add-book" type="button" class="btn btn-primary btn-sm mr-1 mb-2">Add</a>
+        <a href="/myBooks" type="button" class="btn btn-warning btn-sm mr-1 mb-2">MyBooks</a>
+        <a href="/myComments" type="button" class="btn btn-light btn-sm mr-1 mb-2">MyComments</a>
         <a href="/logout" type="button" class="btn btn-danger btn-sm mr-1 mb-2">Logout</a>
       {{else}}
         <a href="/login" type="button" class="btn btn-danger btn-sm mr-1 mb-2">Signin</a>

@@ -3,13 +3,19 @@
     <div class="row mt-4">
         <div class="col-md-1"></div>
         <div class="col-md-6">
+            <div style="overflow: auto;" class="h-75">
+                   
+            
             {{#each bookComment}}
                 <div class="card mt-4">
                     <div class="card-header">{{this.username}}</div>
                     <div class="card-body">
                         <div>
+                            <button type="button" class="btn btn-light"><i class="fas fa-star"></i><span class="badge bg-success ms-2">{{this.rating}}</span>
+                                <span class="visually-hidden">unread messages</span>
+                            </button>
                             {{!-- id="rating-input" --}}
-                            <input id="rating-input" value="{{this.rating}}" type="text" title="" data-size="xs" disabled/>
+                            {{!-- <input id="rating-input" value="{{this.rating}}" type="text" title="" data-size="xs" disabled/> --}}
                         </div>
                         <blockquote class="blockquote mb-0">
                         <p>
@@ -22,6 +28,7 @@
                     </div>
                 </div>
             {{/each}}
+            </div>
         </div>
         <div class="col-md-1"></div>
 
