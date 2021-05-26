@@ -14,25 +14,19 @@ const verifyLogin = (req,res,next)=>{
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-
   let user = req.session.user
-    console.log("user - "+user);
     bookHelpers.getAllBooks().then((books)=>{
-      console.log(books);
       bookHelpers.getAllComments().then((comments)=>{
-        console.log(comments);
         res.render('user/view-books', {title:'User', books, user, comments, home:false, signin:true, admin:false});
       })
     })  
 });
 
 router.get('/add-book', verifyLogin, (req, res, next) => {
-  let userId = user._id;
   res.render('user/add-book', {title:'User', user, userId, home:true});
 })
 
 router.post('/user/add-book', verifyLogin, (req, res, next) => {
-  console.log(req.body);
   console.log(req.files.Image);
   bookHelpers.addBook(req.body,(id)=>{
     let image = req.files.Image
@@ -65,8 +59,6 @@ router.get('/signup',(req,res)=>{
 router.post('/signup',(req,res)=>{
   
     userHelpers.doSignup(req.body).then((response)=>{
-      // console.log(response);
-      
       req.session.user = response
       req.session.user.loggedIn = true
       res.redirect('/')
@@ -77,7 +69,6 @@ router.post('/signup',(req,res)=>{
 router.post('/login',(req,res)=>{
    userHelpers.doLogin(req.body).then((response)=>{
      if (response.status) {
-
        req.session.user = response.user
        req.session.user.loggedIn = true
        res.redirect('/')
@@ -98,23 +89,11 @@ router.get('/logout',(req,res)=>{
 // })
 
 router.get('/book-reviews/:bId',verifyLogin,(req,res)=>{
-  console.log("api call");
-  console.log(req.params.bId);
   bookHelpers.getEachBook(req.params.bId).then((eachBookId)=>{
-    // console.log("oqu4roeuqiq1489375189#$!$");
-    // console.log(eachBookId);
-    // for (let i = 0; i < books.length; i++) {
-    //   if (books[0]._id === req.params.bId) {
-        
-    //     console.log(books);
         bookHelpers.getEachBookComments(req.params.bId).then((bookComment)=>{
-          // console.log(bookComment);
           res.render('user/book-reviews', {eachBookId, bookComment, user, home:true});
         })
       }
-      
-    // }
-  // }
   )
 })
 
@@ -130,7 +109,6 @@ router.post('/comments', verifyLogin, (req, res, next) => {
   }
   console.log(userCommentObj);
   userHelpers.doComment(userCommentObj).then((data)=>{
-    // console.log(data);
     res.redirect('/');
   })
   
@@ -138,15 +116,12 @@ router.post('/comments', verifyLogin, (req, res, next) => {
 
 router.get('/myBooks', verifyLogin, (req, res, next) => {
   bookHelpers.getEachUserBooks(req.session.user._id).then((UserBooks)=>{
-    console.log("UserBooks");
-    console.log(UserBooks);
     res.render('user/my-books', {UserBooks, user, addBooks:true, home:true})
     
   })
 })
 
 router.get('/deleteUserBooks/:id', verifyLogin, (req, res, next) =>{
-  console.log(req.params.id);
   bookHelpers.deleteEachUserBooks(req.params.id).then(()=>{
     res.redirect('/myBooks')
   })
@@ -154,16 +129,12 @@ router.get('/deleteUserBooks/:id', verifyLogin, (req, res, next) =>{
 
 router.get('/myComments', verifyLogin, (req, res, next) => {
   bookHelpers.getEachUserComments(req.session.user._id).then((UserComments)=>{
-    // console.log("UserBooks");
-    // console.log(UserBooks);
-    // console.log(UserComments);
     res.render('user/my-Comments', {UserComments, user, home:true})
     
   })
 })
 
 router.get('/deleteUserComments/:id', verifyLogin, (req, res, next) =>{
-  console.log(req.params.id);
   bookHelpers.deleteEachUserComments(req.params.id).then(()=>{
     res.redirect('/myComments')
   })

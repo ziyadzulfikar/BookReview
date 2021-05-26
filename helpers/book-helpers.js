@@ -4,10 +4,7 @@ const { ObjectId } = require('mongodb');
 var objectId = require('mongodb').ObjectID
 module.exports = {
     addBook:(book,callback)=>{
-        // console.log(book);
-        
         db.get().collection('book').insertOne(book).then((data)=>{
-            // console.log(data);
             callback(data.ops[0]._id)
         })
     },
@@ -44,7 +41,6 @@ module.exports = {
                     }
                 }
             ]).toArray()
-            // console.log(comments);
             resolve(comments)
         })
     },
@@ -57,7 +53,6 @@ module.exports = {
                     }
                 }
             ]).toArray()
-            // console.log(eachUsersBook);
             resolve(eachUsersBook)
         })
     },
@@ -77,7 +72,6 @@ module.exports = {
                     }
                 }
             ]).toArray()
-            console.log(eachUsersComment);
             resolve(eachUsersComment)
         })
     },
