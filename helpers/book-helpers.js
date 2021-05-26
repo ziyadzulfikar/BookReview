@@ -9,84 +9,117 @@ module.exports = {
         })
     },
     getAllBooks:()=>{
-        return new Promise(async(resolve,reject)=>{
-            let books = await db.get().collection(collection.BOOK_COLLECTION).find().toArray()
-            resolve(books)
-        })
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let books = await db.get().collection(collection.BOOK_COLLECTION).find().toArray()
+                resolve(books)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     getAllComments:()=>{
-        return new Promise(async(resolve,reject)=>{
-            let comments = await db.get().collection(collection.COMMENT_COLLECTION).find().toArray()
-            resolve(comments)
-        })
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let comments = await db.get().collection(collection.COMMENT_COLLECTION).find().toArray()
+                resolve(comments)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     getEachBook:(bId)=>{
-        return new Promise(async(resolve,reject)=>{
-            let eachBookId = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
-                {
-                    $match:{
-                        _id : ObjectId(bId)
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let eachBookId = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
+                    {
+                        $match:{
+                            _id : ObjectId(bId)
+                        }
                     }
-                }
-            ]).toArray()
-            resolve(eachBookId)
-        })
+                ]).toArray()
+                resolve(eachBookId)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     getEachBookComments:(bId)=>{
-        return new Promise(async(resolve,reject)=>{
-            let comments = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
-                {
-                    $match:{
-                        bookId : bId
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let comments = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
+                    {
+                        $match:{
+                            bookId : bId
+                        }
                     }
-                }
-            ]).toArray()
-            resolve(comments)
-        })
+                ]).toArray()
+                resolve(comments)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     getEachUserBooks:(EBId)=>{
-        return new Promise(async(resolve,reject)=>{
-            let eachUsersBook = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
-                {
-                    $match:{
-                        UserId : EBId
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let eachUsersBook = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
+                    {
+                        $match:{
+                            UserId : EBId
+                        }
                     }
-                }
-            ]).toArray()
-            resolve(eachUsersBook)
-        })
+                ]).toArray()
+                resolve(eachUsersBook)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     deleteEachUserBooks:(bId)=>{
-        return new Promise((resolve,reject)=>{
-            db.get().collection(collection.BOOK_COLLECTION).removeOne({_id:objectId(bId)}).then((response)=>{
-                resolve(response)
+        try {
+            return new Promise((resolve,reject)=>{
+                db.get().collection(collection.BOOK_COLLECTION).removeOne({_id:objectId(bId)}).then((response)=>{
+                    resolve(response)
+                })
             })
-        })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     getEachUserComments:(UId)=>{
-        return new Promise(async(resolve,reject)=>{
-            let eachUsersComment = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
-                {
-                    $match:{
-                        userid : UId
+        try {
+            return new Promise(async(resolve,reject)=>{
+                let eachUsersComment = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
+                    {
+                        $match:{
+                            userid : UId
+                        }
                     }
-                }
-            ]).toArray()
-            resolve(eachUsersComment)
-        })
+                ]).toArray()
+                resolve(eachUsersComment)
+            })
+    
+        } catch (err) {
+          next(err);
+        }
     },
     deleteEachUserComments:(cId)=>{
-        return new Promise((resolve,reject)=>{
-            db.get().collection(collection.COMMENT_COLLECTION).removeOne({_id:objectId(cId)}).then((response)=>{
-                resolve(response)
+        try {
+            return new Promise((resolve,reject)=>{
+                db.get().collection(collection.COMMENT_COLLECTION).removeOne({_id:objectId(cId)}).then((response)=>{
+                    resolve(response)
+                })
             })
-        })
-    }
     
-
-    // commentBooks:()=>{
-    //     return new Promise(async(resolve,reject)=>{
-
-    //     })
-    // }
+        } catch (err) {
+          next(err);
+        }
+    }
 }
