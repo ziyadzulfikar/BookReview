@@ -9,30 +9,30 @@ module.exports = {
         })
     },
     getAllBooks:()=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let books = await db.get().collection(collection.BOOK_COLLECTION).find().toArray()
                 resolve(books)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
-    },
+        },
     getAllComments:()=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let comments = await db.get().collection(collection.COMMENT_COLLECTION).find().toArray()
                 resolve(comments)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     getEachBook:(bId)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let eachBookId = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
                     {
                         $match:{
@@ -41,15 +41,15 @@ module.exports = {
                     }
                 ]).toArray()
                 resolve(eachBookId)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     getEachBookComments:(bId)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let comments = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
                     {
                         $match:{
@@ -58,15 +58,15 @@ module.exports = {
                     }
                 ]).toArray()
                 resolve(comments)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     getEachUserBooks:(EBId)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let eachUsersBook = await db.get().collection(collection.BOOK_COLLECTION).aggregate([
                     {
                         $match:{
@@ -75,27 +75,27 @@ module.exports = {
                     }
                 ]).toArray()
                 resolve(eachUsersBook)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     deleteEachUserBooks:(bId)=>{
-        try {
-            return new Promise((resolve,reject)=>{
+        return new Promise((resolve,reject)=>{
+                try {
                 db.get().collection(collection.BOOK_COLLECTION).removeOne({_id:objectId(bId)}).then((response)=>{
                     resolve(response)
                 })
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     getEachUserComments:(UId)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let eachUsersComment = await db.get().collection(collection.COMMENT_COLLECTION).aggregate([
                     {
                         $match:{
@@ -104,22 +104,22 @@ module.exports = {
                     }
                 ]).toArray()
                 resolve(eachUsersComment)
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     deleteEachUserComments:(cId)=>{
-        try {
-            return new Promise((resolve,reject)=>{
+        return new Promise((resolve,reject)=>{
+                try {
                 db.get().collection(collection.COMMENT_COLLECTION).removeOne({_id:objectId(cId)}).then((response)=>{
                     resolve(response)
                 })
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     }
 }

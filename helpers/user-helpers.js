@@ -6,23 +6,23 @@ const { ResumeToken } = require('mongodb')
 var objectId = require('mongodb').ObjectID
  module.exports={
     doSignup:(userData)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 userData.Password = await bcrypt.hash(userData.Password,10)
                 db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((data)=>{
                     resolve(data.ops[0])
                 })
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
         
 
     },
     doLogin:(userData)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 let loginStatus = false;
                 let response = {}
                 let user = await db.get().collection(collection.USER_COLLECTION).findOne({Email:userData.Email})
@@ -43,23 +43,23 @@ var objectId = require('mongodb').ObjectID
                     resolve({status:false})
                 }
                 
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     },
     doComment:(userCommentObj)=>{
-        try {
-            return new Promise(async(resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
+                try {
                 db.get().collection(collection.COMMENT_COLLECTION).insertOne(userCommentObj).then((data)=>{
                     resolve(data.ops[0]);
                 })
+            } catch (err) {
+              next(err);
+            }
             })
     
-        } catch (err) {
-          next(err);
-        }
     }
 }
 
