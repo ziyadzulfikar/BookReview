@@ -1,7 +1,8 @@
 var express = require('express');
 const bookHelpers = require('../helpers/book-helpers');
 const userHelpers = require('../helpers/user-helpers');
-var router = express.Router();
+const router = require('express-promise-router')();
+// var router = express.Router();
 
 const verifyLogin = (req,res,next)=>{
   if(req.session.user){

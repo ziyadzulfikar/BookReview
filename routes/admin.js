@@ -2,7 +2,8 @@ var express = require('express');
 const collection = require('../config/collection');
 const bookHelpers = require('../helpers/book-helpers');
 const userHelpers = require('../helpers/user-helpers');
-var router = express.Router();
+const router = require('express-promise-router')();
+// var router = express.Router();
 
 router.get('/', (req, res, next) => {
     res.render('admin/admin-view', {admin:true});
