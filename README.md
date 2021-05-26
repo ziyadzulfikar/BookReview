@@ -100,6 +100,9 @@ Instructions for setting up project
 <br><H3 align="center"> Reviews</H3>
 <br>
 <img alt="screenshot" src="https://github.com/ziyadzulfikar/BookReview/blob/master/screenshots/14.png" />
+ <br><H4 align="center"> Admin Panel (can be accesed by entering "localhost:3000/admin"</H4>
+<br>
+<img alt="screenshot" src="https://github.com/ziyadzulfikar/BookReview/blob/master/screenshots/15.png" />
 </p>
 
 ## BFH TINKERHUB PROJECT USING NODEJS 
