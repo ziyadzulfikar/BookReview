@@ -6,10 +6,13 @@ var logger = require('morgan');
 var hbs = require('express-handlebars');
 var fileUpload = require('express-fileupload')
 
+
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 
 var app = express();
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log('Server Listening on port ' + PORT));
 var db = require('./config/connection');
 var session = require('express-session');
 // view engine setup
