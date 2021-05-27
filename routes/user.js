@@ -24,6 +24,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add-book', verifyLogin, (req, res, next) => {
+  let userId = user._id;
   res.render('user/add-book', {title:'User', user, userId, home:true});
 })
 
